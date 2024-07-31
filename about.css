@@ -1,0 +1,246 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFAF00;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; 
+    z-index: 9999; 
+}
+
+nav {
+    display: flex;
+    padding: 1.4rem;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo img {
+    margin-left: 280px;
+    width: 55px;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: right;
+    margin-right: 250px;
+    flex: 13;
+    gap: 35px;
+}
+
+nav a {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    transition: color 0.3s;
+    text-align: center ;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.3rem;
+    border-bottom: 0.2rem solid #000000;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: black;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+    top: 40px;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.login-btn, .register-btn {
+    background-color: #973131;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 13px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.login-btn:hover, .register-btn:hover {
+    background-color: #c23f3f;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn .register-btn {
+    background-color: #000;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 40px 40px;
+    margin-top: 100px;
+    height: 100%;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-image: url(images/bg-about.png);
+    background-size: cover;
+    padding: 40px;
+    height: 95%;
+    border-radius: 20px;
+    max-width: 1325px;
+    width: 70%;
+    box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: slideInUp 1s forwards;
+}
+
+.about-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1;
+    padding-right: 20px;
+    opacity: 0;
+    animation: slideInLeft 1s forwards;
+    animation-delay: 1s;
+}
+
+.about-text h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.about-text h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+    opacity: 0;
+    animation: slideInRight 1s forwards;
+    animation-delay: 1s;
+}
+
+.about-image img {
+    width: 80%;
+    margin-left: 100px;
+    border-radius: 20px;
+}   
+
+span {
+    color: #973131;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

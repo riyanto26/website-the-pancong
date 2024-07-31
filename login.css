@@ -1,0 +1,131 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+body {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    background: #FFAF00 ; 
+}
+
+
+.container {
+    width: 100%; 
+    display: flex; 
+    max-width: 850px;
+    background-image: url(images/bg-login.png);
+    background-size: cover;
+    border-radius: 15px; 
+    box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.login {
+    width: 400px; 
+}
+
+
+form {
+    width: 250px; 
+    margin: 60px auto; 
+}
+
+
+h1 {
+    margin: 20px; 
+    text-align: center; 
+    font-weight: bolder; 
+    text-transform: uppercase; 
+    color: #973131;
+}
+
+
+hr {
+    border-top: 2px solid #000000; 
+}
+
+
+p {
+    text-align: center; 
+    margin: 10px; 
+    color: #0f0b0a;
+}
+
+
+
+
+form label {
+    display: block; 
+    font-size: 16px; 
+    font-weight: 600; 
+    padding: 5px; 
+}
+
+
+input {
+    width: 100%; 
+    margin: 2px; 
+    border: none; 
+    outline: none; 
+    padding: 8px; 
+    border-radius: 5px; 
+    border: 1px solid gray;
+}
+
+
+button {
+    border: none; 
+    outline: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px; 
+    width: 252px; 
+    color: #fff; 
+    font-size: 16px; 
+    cursor: pointer; 
+    margin-top: 20px; 
+    border-radius: 5px; 
+    background: #973131; 
+}
+
+.swal-title {
+    color: #ffac05;
+}
+.swal-text {
+    color: #0f0b0a;
+}
+.swal-footer {
+    text-align: center !important;
+}
+
+.swal-button {
+    margin: 0 auto !important;
+    background-color: #973131 !important;
+    color: #fff !important;
+}
+.swal-title {
+    color: #ffac05;
+}
+.swal-text {
+    color: #000;
+}
+
+button:hover {
+    background: #c23f3f;
+    transition: background-color 0.3s ease; 
+}
+
+.small-link {
+    font-size: 12px; 
+    text-align: left; 
+    margin-top: 5px; 
+}   
+

@@ -1,0 +1,768 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    outline: none; 
+    border: none;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFAF00;
+    height: 100%;
+    flex-direction: column;
+}
+/* CSS NAVBAR DAN HEADER */
+header {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; 
+    z-index: 9999; 
+}
+
+nav {
+    padding: 1.4rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#hamburger-menu {
+    display: none;
+}   
+
+
+.logo {
+    flex: 1;
+}
+
+.logo img {
+    margin-left: 280px;
+    width: 55px;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: right;
+    margin-right: 250px;
+    flex: 13;
+    gap: 35px;
+}
+
+nav a {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    transition: color 0.3s;
+    text-align: center ;
+}
+
+/* CSS NAVBAR DAN HEADER END */
+
+/* CSS DROPDOWN ATAU HAMBURGER */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: black;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+    top: 40px;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* CSS DROPDOWN ATAU HAMBURGER END */
+
+/* CSS LOGIN DAN REGIS */
+.login-btn, .register-btn {    
+    background-color: #973131;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 13px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.login-btn:hover, .register-btn:hover {
+    background-color: #c23f3f;
+    transition: background-color 0.3s ease;
+}
+/* CSS LOGIN DAN REGIS END */
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 200px 300px 40px;
+    margin-top: 80px; 
+}
+
+.content-left {
+    max-width: 600px;
+}
+
+.content-left h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideInLeft 1s forwards;
+    animation-delay: 0.5s;
+}
+
+.content-left p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideInLeft 1s forwards;
+    animation-delay: 1.5s;
+}
+
+span {
+    color: #973131;
+}
+
+.buttons a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #973131;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.buttons a:hover {
+    background-color: #c23f3f;
+}
+
+.container-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.3rem;
+    border-bottom: 0.2rem solid #000;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.container-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+/* SWIPER SLIDE CSS */
+.swiper-container {
+    width: 50%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: slideInRight 1s forwards;
+    animation-delay: 2s;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.swiper-pagination {
+    bottom: 10px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #000;
+}
+/* SWIPER SLIDE CSS END */
+
+/* ANIMASI */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/* ANIMASI END */
+
+/* CSS TENTANG KAMI */
+section .about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+.about-card {
+    height: 50%;
+    width: 100%;
+    max-width: 1325px;
+    display: flex;
+    background-image: url(images/bg-about.png);
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    padding: 50px 40px 40px;
+    margin-top: 80px;
+    opacity: 0;
+    animation: slideInUp 1s forwards;
+}
+
+.about-text {
+    flex: 1;
+    padding-right: 20px;
+    opacity: 0;
+    animation: slideInLeft 1s forwards;
+    animation-delay: 1s;
+}
+
+.about-text h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.about-text h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+    opacity: 0;
+    animation: slideInRight 1s forwards;
+    animation-delay: 1s;
+}
+
+.about-image img {
+    width: 80%;
+    margin-left: 100px;
+    border-radius: 20px;
+}   
+
+span {
+    color: #973131;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/* CSS TENTANG KAMI END */
+
+/* CSS PRODUK */
+.container {
+    width: 1100px;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.title {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-top: 350px;  
+}
+
+.title h1 {
+    font-size: 36px;
+    color: #000;
+}
+
+span {
+    color: #973131;
+}
+
+.shop {
+    position: relative;
+}
+
+.shop img {
+    width: 40px;
+}
+
+.shop span {
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+}
+
+.shop:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+    margin-top: 50px;
+}
+
+.list .item {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.list .item:hover {
+    transform: translateY(-10px);
+}
+
+.list .item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.list .item .title {
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.list .item .price {
+    color: #973131;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.list .item button {
+    background-color: #973131;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list .item button:hover {
+    background-color: #c23f3f;
+}
+
+.card {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 500px;
+    background-color: #453e3b;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.active .card {
+    left: calc(100% - 500px);
+}
+
+.active .container {
+    transform: translateX(-200px);
+}
+
+.card h1 {
+    color: #E0A75E;
+    font-weight: 600;
+    margin: 0;
+    padding: 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #973131;
+    border-bottom: 1px solid #E0A75E;
+}
+
+.card .checkOut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+.card .checkOut .total {
+    background-color: #f9f9f9;
+    width: 50%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #973131;
+}
+
+.card .checkOut .closeShopping {
+    background-color: #973131;
+    color: #fff;
+    width: 50%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.listCard li {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    padding: 10px 0;
+}
+
+.listCard li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listCard li img {
+    width: 80px;
+}
+
+.listCard li button {
+    background-color: #fff5;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.listCard .count {
+    margin: 0 10px;
+}
+/* CSS PRODUK END */
+
+/* CSS KONTAK */
+.link a {
+    position: relative;
+    color: #000;
+    padding-bottom: 0.75rem;
+  }
+  
+  .link a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #973131;
+    transition: all 0.3s ease;
+  }
+  
+  .link a:hover::after {
+    width: 75%;
+  }
+  
+  .btn1 {
+    padding: 10px;
+    margin-right: 20px;
+  }
+  
+  .btn {
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid #973131;      
+    color: #000;                
+    padding: 0.5rem 2rem;            
+    font-size: 1rem;               
+    cursor: pointer;              
+    transition: background-color 0.3s ease, color 0.3s ease; 
+  }
+  
+  .btn:hover {
+    background-color: #973131;
+    color: #000;             
+  }
+  
+  .contact-section {
+    display: flex;
+    color: #000;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+  
+  .title-contact {
+    color: #973131 ;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+  }
+  
+  .form-content, .info-content {
+    padding: 20px;
+    flex: 1;
+    max-width: 800px;
+  }
+  
+  .social-icons {
+    font-size: 20px;
+  }
+  
+  .social-icons .icon {
+    color: #000;
+    background-color: white;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: transform 0.3s, box-shadow 0.3s; 
+  }
+  
+  .social-icons .icon:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+  }
+  
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #973131;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border 0.3s;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 123, 255, 0);
+    border: 1px solid #c23f3f;
+    color: #973131;
+  }
+  
+  .info-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .info-content p {
+    margin-bottom: 2rem;
+  }
+  
+  .social-icons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;  
+    display: flex;
+    color: #973131;
+  }
+  
+  .social-icons a {
+    margin-left: 10px;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+/* CSS KONTAK END */
+
+/* FOOTER */
+footer {
+    border-top: 2px solid #973131;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content div {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-content h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #973131;
+}
+
+.footer-content p, .footer-content a {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: #973131;
+    transform: scale(1.05);
+}
+
+.footer-content i {
+    margin-right: 8px;
+}
+
+.footer-content a i {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-content a:hover i {
+    color: #973131;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.footer-center{
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+  }
+/* FOOTER END */

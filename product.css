@@ -1,0 +1,331 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFAF00;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+nav {
+    padding: 1.4rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo img { 
+    margin-left: 280px;
+    width: 55px;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: right;
+    margin-right: 250px;
+    flex: 13;
+    gap: 35px;
+}
+
+nav a {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    transition: color 0.3s;
+    text-align: center ;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.3rem;
+    border-bottom: 0.2rem solid #000000;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: black;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+    top: 40px;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.login-btn, .register-btn {
+    background-color: #973131;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 13px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.login-btn:hover, .register-btn:hover {
+    background-color: #c23f3f;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn .register-btn {
+    background-color: #000;
+    text-decoration: none;
+}
+
+.container {
+    width: 1100px;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.title {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.title h1 {
+    font-size: 36px;
+    color: #000;
+}
+
+span {
+    color: #973131;
+}
+
+.shop {
+    position: relative;
+}
+
+.shop img {
+    width: 40px;
+}
+
+.shop span {
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+}
+
+.shop:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+    margin-top: 50px;
+}
+
+.list .item {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.list .item:hover {
+    transform: translateY(-10px);
+}
+
+.list .item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.list .item .title {
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.list .item .price {
+    color: #973131;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.list .item button {
+    background-color: #973131;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list .item button:hover {
+    background-color: #c23f3f;
+}
+
+.card {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 500px;
+    background-color: #453e3b;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.active .card {
+    left: calc(100% - 500px);
+}
+
+.active .container {
+    transform: translateX(-200px);
+}
+
+.card h1 {
+    color: #E0A75E;
+    font-weight: 600;
+    margin: 0;
+    padding: 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #973131;
+    border-bottom: 1px solid #E0A75E;
+}
+
+.card .checkOut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+.card .checkOut .total {
+    background-color: #f9f9f9;
+    width: 50%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #973131;
+}
+
+.card .checkOut .closeShopping {
+    background-color: #973131;
+    color: #fff;
+    width: 50%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.listCard li {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    padding: 10px 0;
+}
+
+.listCard li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listCard li img {
+    width: 80px;
+}
+
+.listCard li button {
+    background-color: #fff5;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.listCard .count {
+    margin: 0 10px;
+}
+

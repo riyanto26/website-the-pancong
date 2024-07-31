@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #E0A75E;
+            color: #973131;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        h3.title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .inputBox {
+            margin-bottom: 20px;
+        }
+
+        .inputBox span {
+            font-size: 16px;
+            color: #973131;
+        }
+
+        .inputBox input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .flex {
+            display: flex;
+            gap: 20px;
+        }
+
+        .flex .inputBox {
+            flex: 1;
+        }
+
+        .checkout {
+            display: flex;
+            align-items: center;
+            background-color: #973131;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .checkout:hover {
+            background-color: #c23f3f;
+        }
+
+        .paymentMethods {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .paymentMethods a {
+            text-decoration: none;
+            color: #973131;
+            border: 1px solid #973131;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .paymentMethods a:hover {
+            background-color: #973131;
+            color: #fff;
+        }
+
+        .swal-title {
+            color: #ffac05;
+        }
+        .swal-text {
+            color: #0f0b0a;
+        }
+        .swal-button {
+            background-color: #973131 !important;
+            color: #fff !important;
+            transition: background-color 0.3s ease;
+        }
+        .swal-button:hover {
+            background-color: #c23f3f !important;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="section billing">
+        <h3 class="title">Alamat Penagihan</h3>
+        <div class="inputBox">
+            <span>Nama Lengkap:</span>
+            <input type="text" id="fullName" placeholder="Masukkan Nama Anda">
+        </div>
+        <div class="inputBox">
+            <span>Email:</span>
+            <input type="email" id="email" placeholder="Masukkan Email Anda">
+        </div>
+        <div class="inputBox">
+            <span>Alamat:</span>
+            <input type="text" id="address" placeholder="Masukkan Alamat">
+        </div>
+        <div class="inputBox">
+            <span>Kota:</span>
+            <input type="text" id="city" placeholder="Masukkan Kota Anda">
+        </div>
+        <div class="flex">
+            <div class="inputBox">
+                <span>Provinsi:</span>
+                <input type="text" id="state" placeholder="Negara">
+            </div>
+            <div class="inputBox">
+                <span>Kode Pos:</span>
+                <input type="text" id="code" placeholder="123 456">
+            </div>
+        </div>
+    </div>
+
+    <div class="section payment">
+        <h3 class="title">Pembayaran</h3>
+        <div class="paymentMethods">
+            <a href="qris_form.html">QRIS</a>
+            <a href="dana_form.html">Dana</a>
+            <a href="shopeepay_form.html">ShopeePay</a>
+            <a href="gopay_form.html">GoPay</a>
+        </div>
+        <div class="inputBox" id="paymentDetails" style="display: none;">
+            <span>Rincian Pembayaran:</span>
+            <input type="text" id="paymentInfo" placeholder="Masukkan Rincian Pembayaran">
+        </div>
+        <a href="#" class="checkout" onclick="handleCheckout(event)">Lakukan Pembayaran</a>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function handleCheckout(event) {
+        event.preventDefault();
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const state = document.getElementById('state').value.trim();
+        const code = document.getElementById('code').value.trim();
+        const paymentInfo = document.getElementById('paymentInfo').value.trim();
+
+        if (!fullName || !email || !address || !city || !state || !code || !paymentInfo) {
+            Swal.fire({
+                title: "Lengkapi Formulir",
+                text: "Harap lengkapi semua informasi sebelum melanjutkan.",
+                icon: "warning",
+                confirmButtonText: "OK",
+                customClass: {
+                    title: 'swal-title',
+                    text: 'swal-text',
+                    confirmButton: 'swal-button'
+                },
+                backdrop: 'rgba(0, 0, 0, 0.6)'
+            });
+        } else {
+            Swal.fire({
+                title: "Pembayaran Berhasil",
+                text: "Terima kasih! Pembayaran Anda telah diproses.",
+                icon: "success",
+                confirmButtonText: "OK",
+                customClass: {
+                    title: 'swal-title',
+                    text: 'swal-text',
+                    confirmButton: 'swal-button'
+                },
+                backdrop: 'rgba(0, 0, 0, 0.6)'
+            }).then(() => {
+                window.location.href = "product.php";
+            });
+        }
+    }
+
+    function selectPayment(method) {
+        document.getElementById('paymentDetails').style.display = 'block';
+        document.getElementById('paymentInfo').placeholder = `Masukkan rincian ${method}`;
+    }
+</script>
+
+
+
+</body>
+</html>
