@@ -13,7 +13,7 @@ closeShopping.addEventListener('click', () => {
     body.classList.remove('active');
 });
 
-let products = [
+let products =  [
     { id: 1, name: 'Pancong Original', image: 'menu1pro.png', price: 10000 },
     { id: 2, name: 'Pancong Keju Aja', image: 'menu2pro.png', price: 12000 },
     { id: 3, name: 'Pancong Cokelat', image: 'menu3pro.png', price: 13000 },
@@ -76,18 +76,18 @@ function reloadCart() {
 
         total.addEventListener('click', () => {
             if (listCards.length > 0) {
-            window.location.href = "payment.html";
+            window.location.href = "payment.php";
             
             } else {
-            window.location.href = "cart.html";
+            window.location.href = "product.php";
             }
         });
 
         closeShopping.addEventListener('click', () => {
             if (listCards.length > 0) {
-              window.location.href = "cart.html";
+              window.location.href = "product.php";
             } else {
-              window.location.href = "cart.html";
+              window.location.href = "product.php";
             }
           });
 
@@ -100,3 +100,49 @@ function changeQuantity(key, quantity) {
     }
     reloadCart();
 }
+
+// js search
+document.getElementById("search-btn").addEventListener('click', function() {
+    var searchQuery = document.getElementById("search-input").value.toLowerCase();
+    if (searchQuery) {
+        searchProducts(searchQuery);
+    }
+});
+
+function searchProducts(query) {
+    const allItems = document.querySelectorAll('.list .item');
+    let found = false;
+
+    allItems.forEach(item => {
+        const title = item.querySelector('.title').textContent.toLowerCase();
+        if (title.includes(query)) {
+            item.style.display = 'block'; 
+            found = true;
+        } else {
+            item.style.display = 'none'; 
+        }
+    });
+
+    if (!found) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Menu Tidak Ditemukan',
+            text: 'Menu yang Anda cari tidak tersedia atau stok sedang habis.',
+            confirmButtonText: 'OK',
+            customClass: {
+                confirmButton: 'custom-btn' 
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'product.php'; 
+            }
+        });
+    }
+}
+// js search
+
+// button hapus field
+document.getElementById("clear-btn").onclick = function() {
+    document.getElementById("search-input").value = ''; 
+};
+// button hapus field

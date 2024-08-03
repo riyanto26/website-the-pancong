@@ -44,14 +44,54 @@ nav {
 }
 
 .logo img {
-    margin-left: 280px;
+    margin-left: 270px;
     width: 55px;
 }
+
+/* menu */
+/* .menu {
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+#hamburger-menu {
+    color: #000;
+    transition: color 0.3 ease;
+}
+
+#hamburger-menu:hover {
+    color: #973131;
+}
+
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+#dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+#dropdown-menu a:hover {
+    background-color: #f1f1f1;
+} */
+/* menu */
 
 .nav-center {
     display: flex;
     justify-content: right;
-    margin-right: 250px;
+    margin-right: 80px;
     flex: 13;
     gap: 35px;
 }
@@ -60,7 +100,7 @@ nav a {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     text-decoration: none;
-    color: black;
+    color: #333;
     font-size: 17px;
     transition: color 0.3s;
     text-align: center ;
@@ -78,7 +118,7 @@ nav a::after {
 nav a:hover::after {
     transform: scaleX(0.5);
 }
-
+/* 
 .dropdown {
     position: relative;
     display: flex;
@@ -118,26 +158,84 @@ nav a:hover::after {
 
 .dropdown:hover .dropdown-content {
     display: block;
+} */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #ffffff;
 }
 
-.login-btn, .register-btn {
+.search-bar input {
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 150px;
+}
+
+.search-bar button {
     background-color: #973131;
     color: white;
-    padding: 10px 20px;
-    border-radius: 13px;
-    font-size: 16px;
-    margin-left: 20px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
-.login-btn:hover, .register-btn:hover {
+.search-bar button:hover {
     background-color: #c23f3f;
+}
+
+.search-bar button#clear-btn {
+    background-color: transparent;
+    color: #973131;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button#clear-btn:hover {
+    color: #c23f3f;
+}
+
+/* .login-btn, .register-btn {    
+    background-color: #973131;
+    color: white;   
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-btn {
+    color: #000;
+    margin-right: 15px;
     transition: background-color 0.3s ease;
 }
 
-.login-btn .register-btn {
+.register-btn {
+    color: #973131;
     background-color: #000;
-    text-decoration: none;
 }
+
+.register-btn:hover {
+    background-color: rgba(0, 123, 255, 0);
+    border: 1px solid #973131;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: rgba(0, 123, 255, 0);
+    border: 1px solid #000;
+    color: #973131;
+}
+
+.login-btn:hover, .register-btn:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+} */
 
 main {
     display: flex;
@@ -244,3 +342,14 @@ span {
         opacity: 1;
     }
 }
+
+/* swwet alert */
+.swal2-confirm.custom-btn {
+    background-color: #973131; 
+    color: #fff; 
+}
+
+.swal2-confirm.custom-btn:hover {
+    background-color: #c23f3f; /* Warna tombol saat hover */
+}
+/* swwet alert */

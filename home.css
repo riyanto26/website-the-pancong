@@ -29,7 +29,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0; 
@@ -43,10 +43,45 @@ nav {
     width: 100%;
 }
 
-#hamburger-menu {
-    display: none;
-}   
+/* menu */
+/* .menu {
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+}
 
+#hamburger-menu {
+    color: #000;
+    transition: color 0.3 ease;
+}
+
+#hamburger-menu:hover {
+    color: #973131;
+}
+
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+#dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+#dropdown-menu a:hover {
+    background-color: #f1f1f1;
+} */
+/* menu */
 
 .logo {
     flex: 1;
@@ -60,7 +95,7 @@ nav {
 .nav-center {
     display: flex;
     justify-content: right;
-    margin-right: 250px;
+    margin-right: 80px;
     flex: 13;
     gap: 35px;
 }
@@ -69,79 +104,140 @@ nav a {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     text-decoration: none;
-    color: black;
+    color: #333;
     font-size: 17px;
     transition: color 0.3s;
     text-align: center ;
 }
 
-/* CSS NAVBAR DAN HEADER END */
-
-/* CSS DROPDOWN ATAU HAMBURGER */
-.dropdown {
-    position: relative;
+/* search */
+.search-bar {
     display: flex;
     align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #ffffff;
 }
 
-.dropbtn {
+.search-bar input {
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 150px;
+}
+
+.search-bar button {
+    background-color: #973131;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #c23f3f;
+}
+
+.search-bar button#clear-btn {
     background-color: transparent;
-    color: black;
-    font-size: 24px;
+    color: #973131;
     border: none;
     cursor: pointer;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 10px;
-    top: 40px;
-    right: 0;
+.search-bar button#clear-btn:hover {
+    color: #c23f3f;
+}
+/* search */
+
+/* swwet alert */
+.swal2-confirm.custom-btn {
+    background-color: #973131; 
+    color: #fff; 
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+.swal2-confirm.custom-btn:hover {
+    background-color: #c23f3f; /* Warna tombol saat hover */
 }
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-/* CSS DROPDOWN ATAU HAMBURGER END */
+/* swwet alert */
 
 /* CSS LOGIN DAN REGIS */
-.login-btn, .register-btn {    
+/* .login-btn, .register-btn {    
     background-color: #973131;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 13px;
+    color: white;   
+    font-weight: 600;
+    padding: 12px 40px;
+    border-radius: 6px;
     font-size: 16px;
-    margin-left: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-btn {
+    color: #000;
+    margin-right: 15px;
+    opacity: 0;
+    transition: background-color 0.3s ease;
+    animation: slideInLeft 1s forwards;
+    animation-delay: 2.5s;
+}
+
+.register-btn {
+    color: #fff;
+    background-color: #333;
+    opacity: 0;
+    animation: slideInUp 1s forwards;
+    animation-delay: 3s;
+}
+
+.register-btn:hover {
+    background-color: rgba(0, 123, 255, 0);
+    border: 1px solid #973131;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: rgba(0, 123, 255, 0);
+    border: 1px solid #000;
+    color: #fff;
 }
 
 .login-btn:hover, .register-btn:hover {
-    background-color: #c23f3f;
-    transition: background-color 0.3s ease;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+} */
+
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 /* CSS LOGIN DAN REGIS END */
 
 section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 200px 300px 40px;
-    margin-top: 80px; 
+    padding: 100px 300px 40px;
+    margin-top: 10px; 
 }
 
 .content-left {
@@ -149,38 +245,25 @@ section {
 }
 
 .content-left h1 {
-    font-size: 60px;
-    margin-bottom: 20px;
+    font-size: 55px;
+    margin-bottom: 5px;
     opacity: 0;
     animation: slideInLeft 1s forwards;
     animation-delay: 0.5s;
+    color: #333;
 }
 
 .content-left p {
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     opacity: 0;
     animation: slideInLeft 1s forwards;
     animation-delay: 1.5s;
+    color: #222;
 }
 
 span {
     color: #973131;
-}
-
-.buttons a {
-    display: inline-block;
-    margin-right: 10px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: #973131;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-}
-
-.buttons a:hover {
-    background-color: #c23f3f;
 }
 
 .container-nav a::after {
@@ -329,10 +412,10 @@ span {
     }
     to {
         transform: translateY(0);
+
         opacity: 1;
     }
 }
-
 @keyframes slideInLeft {
     from {
         transform: translateX(-100%);
@@ -372,7 +455,7 @@ span {
 
 .title h1 {
     font-size: 36px;
-    color: #000;
+    color: #333;
 }
 
 span {
@@ -546,12 +629,13 @@ span {
 .listCard .count {
     margin: 0 10px;
 }
+
 /* CSS PRODUK END */
 
 /* CSS KONTAK */
 .link a {
     position: relative;
-    color: #000;
+    color: #333;
     padding-bottom: 0.75rem;
   }
   
@@ -579,7 +663,7 @@ span {
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid #973131;      
-    color: #000;                
+    color: #333;                
     padding: 0.5rem 2rem;            
     font-size: 1rem;               
     cursor: pointer;              
@@ -593,43 +677,38 @@ span {
   
   .contact-section {
     display: flex;
-    color: #000;
+    color: #333;
     align-items: center;
     justify-content: center;
     gap: 4rem;
+    margin-top: 200px;
   }
   
   .title-contact {
-    color: #973131 ;
-    margin-bottom: 0.5rem;
+    color: #973131;
+    margin-bottom: 3rem;
     font-size: 3rem;
+    text-align: center;
+    border-bottom: 4px solid #333;
+    border-top: 4px solid #333;
+    font-weight: 700;
+    border-radius: 100%;
+  }
+
+  .info-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+
+  .info-content h4 {
+    margin-bottom: 6px;
+    font-size: 1.5rem;
   }
   
   .form-content, .info-content {
     padding: 20px;
     flex: 1;
     max-width: 800px;
-  }
-  
-  .social-icons {
-    font-size: 20px;
-  }
-  
-  .social-icons .icon {
-    color: #000;
-    background-color: white;
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    transition: transform 0.3s, box-shadow 0.3s; 
-  }
-  
-  .social-icons .icon:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   }
   
   form {
@@ -642,25 +721,36 @@ span {
     font-weight: bold;
   }
   
-  input, textarea {
+  .form-content input, textarea {
     margin-top: 10px;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #fff;
-  }
+    border: 2px solid rgba(51, 51, 51, 1);
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-bottom-width: 5px;
+    border-right-width: 5px;
+    border-radius: 6px;
+    transition: border-bottom-width 0.3s ease;
+    outline: none;
+}
+
+.form-content input:focus, textarea:focus {
+    border-bottom-width: 6px;
+}
+
   
-  button {
-    margin-top: 15px;
+ .form-content button {
+    margin-top: 30px;
     padding: 10px 20px;
     background-color: #973131;
-    color: #000;
+    color: #222;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, border 0.3s;
   }
   
-  button:hover {
+  .form-content button:hover {
     background-color: rgba(0, 123, 255, 0);
     border: 1px solid #c23f3f;
     color: #973131;
@@ -670,50 +760,35 @@ span {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    border-radius: 15px;
   }
   
   .info-content p {
-    margin-bottom: 2rem;
-  }
-  
-  .social-icons {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;  
-    display: flex;
-    color: #973131;
-  }
-  
-  .social-icons a {
-    margin-left: 10px;
-  }
-  
-  .social-icons img {
-    width: 24px;
-    height: 24px;
+    margin-bottom: 1.5rem;
   }
 /* CSS KONTAK END */
 
 /* FOOTER */
 footer {
-    border-top: 2px solid #973131;
+    border-top: 5px solid #222;
+    background-color: #973131;
     color: #fff;
-    padding: 20px 0;
+    padding: 20px;
     text-align: center;
-    position: relative;
     bottom: 0;
     width: 100%;
+    margin-top: 200px;
 }
-
 
 .footer-content {
     display: flex;
     justify-content: center;
+
     flex-wrap: wrap;
     gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1800px;
 }
 
 .footer-content div {
@@ -722,14 +797,14 @@ footer {
 }
 
 .footer-content h4 {
-    font-size: 18px;
+    font-size: 21px;
     margin-bottom: 10px;
-    color: #973131;
+    color: #FFAF00;
 }
 
 .footer-content p, .footer-content a {
-    color: #fff;
-    font-size: 14px;
+    color: #222;
+    font-size: 16px;
     margin-bottom: 5px;
     text-decoration: none;
     display: block;
@@ -737,7 +812,7 @@ footer {
 }
 
 .footer-content a:hover {
-    color: #973131;
+    color: #FFAF00;
     transform: scale(1.05);
 }
 
@@ -750,19 +825,56 @@ footer {
 }
 
 .footer-content a:hover i {
-    color: #973131;
+    color: #FFAF00;
     transform: scale(1.2);
 }
 
 .footer-bottom {
     margin-top: 20px;
-    font-size: 12px;
-    color: #fff;
+    font-size: 14px;
+    color: #222;
 }
 
-.footer-center{
-    color: #fff;
-    font-size: 12px;
+.footer-center {
+    color: #222;
+    font-size: 14px;
     text-decoration: none;
-  }
-/* FOOTER END */
+}
+
+.social-icons {
+    color: #973131;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-icons .icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: flex;
+}
+
+.social-icons .icon {
+    color: #333;
+    background-color: white;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-icons .icon:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* FOOTER END */    

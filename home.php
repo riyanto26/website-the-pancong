@@ -2,13 +2,15 @@
 session_start();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -17,6 +19,17 @@ session_start();
 </head>
 <body>
     <header>
+        <!-- hamburger menu -->
+        <!-- <div class="menu">
+            <a href="javascript:void(0);" id="hamburger-menu"><i data-feather="menu"></i></a>
+            <div id="dropdown-menu" class="dropdown-content">
+                <a href="profile.php">Profil</a>
+                <a href="logout.php">Log Out</a>
+                <a href="faq.php">FAQ</a>
+            </div>
+        </div> -->
+        <!-- hamburger menu end -->
+
         <!-- logo -->
         <div class="logo">
             <a href="#"><img src="images/logo-pancong.png" alt="Logo"></a>
@@ -29,16 +42,17 @@ session_start();
                 <a href="about.php">Tentang Kami</a>
                 <a href="product.php">Produk</a>
                 <a href="contact.php">Kontak</a>
-                <a href="#" id="search"><i data-feather="search"></i></a>
             </div>
-            <div class="dropdown">
-                <button class="dropbtn"><i class="fas fa-chevron-down"></i></button>
-                <div class="dropdown-content">
-                    <a href="profile.php">Profile</a>
-                    <a href="faq.php">FAQ</a>
-                    <a href="logout.php">Log Out</a>
+
+            <!-- search -->
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Cari menu . . .">
+                    <button id="clear-btn"><i data-feather="x-circle"></i></button>
+                    <button id="search-btn"><i data-feather="search"></i></button>
                 </div>
             </div>
+            <!-- search end -->
         </nav>
         <!-- navbar end -->
 
@@ -50,14 +64,6 @@ session_start();
                 <div class="total">0</div>
                 <div class="closeShopping">Tutup</div>
             </div>
-        <!-- produk end -->
-
-        <!-- php -->
-        <?php if (!isset($_SESSION['username'])): ?>
-            <a href="login.php" class="login-btn">Login</a>
-            <a href="register.php" class="register-btn">Register</a>
-        <?php endif; ?>
-
     </header> 
     <main>
 
@@ -66,7 +72,12 @@ session_start();
         <div class="content-left">
             <h1 class="animated-text">Selamat<br>Datang Di<br>The <span>Pancong</span>.</h1>
             <p class="animated-text">Selamat datang di website The Pancong. Di sini, Anda dapat menemukan produk terbaik kami dan ulasan dari pelanggan kami.</p>
-            <img src="/images/bg-home.png" alt="">
+            <!-- BUTTON LOGIN DAN REGIS  -->
+            <!-- <?php if (!isset($_SESSION['username'])): ?>
+                <a href="login.php" class="login-btn">Login</a>
+                <a href="register.php" class="register-btn">Register</a>
+            <?php endif; ?> -->
+            <!-- BUTTON LOGIN DAN REGIS  -->
         </div>
         <!-- gambar slide -->
         <div class="swiper-container">
@@ -82,6 +93,12 @@ session_start();
             <div class="swiper-button-prev"></div>
         </div>
         <!-- gambar slide end -->
+
+        <!-- icon sosmed top -->
+        <div class="social-icons">
+
+                </div>
+        <!-- icon sosmed top end -->
         </section>
         <!-- home end -->
 
@@ -106,16 +123,24 @@ session_start();
 
         <!-- menu atau produk -->
         <div class="container">
-            <div class="title">
-                <h1>Menu <span> The Pancong</span></h1>            
-            <div class="shop">
-                <img src="images/shop.png" alt="Shop Icon">
-                <span span class="quantity">0</span>
-            </div>
-            </div>
-        <div class="list"></div>
+    <div class="title">
+        <h1>Menu <span>The Pancong</span></h1>            
+        <div class="shop">
+            <img src="images/shop.png" alt="Shop Icon">
+            <span class="quantity">0</span>
         </div>
+    </div>
+        <div class="list">
+            <?php foreach ($filteredProducts as $product): ?>
+                <div class="item">
+                    <img src="images/<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                    <div class="title"><?php echo $product['name']; ?></div>
+                    <div class="price">Rp <?php echo number_format($product['price']); ?></div>
+                    <button onclick="addToCart(<?php echo $product['id']; ?>)">Tambahkan ke Keranjang</button>
+                </div>
+            <?php endforeach; ?>
         </div>
+    </div>
         <!-- menu atau produk end -->
 
         <!-- kontak -->
@@ -140,7 +165,7 @@ session_start();
 
             <div class="info-content">
                 <div class="title-contact">
-                    <h1>Contact</h1>
+                    <h1>Kontak</h1>
                 </div>
                 <h2>Hubungi Kami</h2>
                 <p>"Berikan pelayanan terbaik kepada pelanggan, karena kepuasan mereka adalah prioritas utama kami."</p>
@@ -150,73 +175,132 @@ session_start();
                 <p>(021) 123-4567</p>
                 <h4>Email</h4>
                 <p>contact@gmail.com</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/rrynnnnnnn_/" target="_blank" class="icon"><ion-icon name="logo-instagram"></ion-icon></a>
-                    <a href="http://tiktok.com/@rynnnnnnn_0/" target="_blank" class="icon"><ion-icon name="logo-tiktok"></ion-icon></a>
-                    <a href="https://wa.me/6285691" target="_blank" class="icon"><ion-icon name="logo-whatsapp"></ion-icon></a>
-                    <a href="https://youtube.com" target="_blank" class="icon"><ion-icon name="logo-youtube"></ion-icon></a>
-                </div>
             </div>
         </section>
 
         <!-- footer -->
         <footer>
-        <div class="footer-content">
-            <div>
-                <h4>Kontak Kami</h4>
-                <p>Email: contact@thepancong.com</p>
-                <p>Telepon: +62 123 456 789</p>
-            </div>
-            <div>
-                <h4>Link Penting</h4>
-                <a href="home.php">Home</a>
-                <a href="about.php">Tentang Kami</a>
-                <a href="product.php">Produk</a>
-                <a href="contact.php">Kontak</a>
-            </div>
-            <div>
-                <h4>Ikuti Kami</h4>
-                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+    <div class="footer-content">
+        <div class="logo-footer">
+            <a href="#"><img src="images/logo-pancong.png" alt="Logo"></a>
+        </div>
+        <div>
+            <h4>Link Penting</h4>
+            <a href="home.php">Home</a>
+            <a href="about.php">Tentang Kami</a>
+            <a href="product.php">Produk</a>
+            <a href="contact.php">Kontak</a>
+        </div>
+        <div class="social-icons">
+            <h4>Ikuti Kami</h4>
+            <div class="icons">
+                <a href="https://www.instagram.com/rrynnnnnnn_/" target="_blank" class="icon"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="http://tiktok.com/@rynnnnnnn_0/" target="_blank" class="icon"><ion-icon name="logo-tiktok"></ion-icon></a>
+                <a href="https://wa.me/6285691" target="_blank" class="icon"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                <a href="https://youtube.com" target="_blank" class="icon"><ion-icon name="logo-youtube"></ion-icon></a>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2024 The Pancong. All rights reserved.
-        </div>
-        <div class="footer-center">
-            <p>Created by <a href="https://www.instagram.com/rrynnnnnnn_/?next=%2F">Riyanto Febrian</a>. | &copy; 2024.</p>
-        </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 The Pancong. All rights reserved.
+    </div>
+    <div class="footer-center">
+        <p>Created by <a href="https://www.instagram.com/rrynnnnnnn_/?next=%2F">Riyanto Febrian</a>. | &copy; 2024.</p>
+    </div>
+</footer>
+
         <!-- footer end -->
 
-            <!-- Maps -->
-            <!-- <section class="maps-card">
-                <h2>Lokasi Kami</h2>
-                <div class="map-container"> -->
-                    <!-- Ganti src dengan link Google Maps lokasi outlet Anda -->
-                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.106343104835!2d144.96315731582066!3d-37.81410797975154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c3b40c40b%3A0x5045675218ce690!2sVictoria%20Australia!5e0!3m2!1sen!2sin!4v1634187435486!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </section>
-        </div> -->
         <!-- kontak end -->
     </main>
     <!-- javascript -->
     
+    <!-- search -->
+    <script>
+        feather.replace();
+
+        document.getElementById("hamburger-menu").onclick = function() {
+            var menu = document.getElementById("dropdown-menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        };
+
+        document.getElementById("search-btn").onclick = function() {
+            var searchQuery = document.getElementById("search-input").value;
+            if (searchQuery) {
+                window.location.href = 'search.php?q=' + searchQuery;
+            }
+        };
+    </script>
+    <!-- search -->
+
     <!-- produk js -->
      <script src="product.js"></script>
     <!-- produk js end -->
-
-    <!-- feather icons -->
-    <script>
-        feather.replace();
-    </script>
-    <!-- feather icons end -->
 
     <!-- icon kontak -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- icon kontak end -->
+
+    <script>
+        document.getElementById("search-btn").addEventListener('click', function() {
+            var searchQuery = document.getElementById("search-input").value.toLowerCase();
+            if (searchQuery) {
+                searchProducts(searchQuery);
+            }
+        });
+
+        function searchProducts(query) {
+            const allItems = document.querySelectorAll('.list .item');
+            let found = false;
+
+            allItems.forEach(item => {
+                const title = item.querySelector('.title').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    item.style.display = 'block'; // Tampilkan jika sesuai
+                    found = true;
+                } else {
+                    item.style.display = 'none'; // Sembunyikan jika tidak sesuai
+                }
+            });
+
+            if (!found) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Menu Tidak Ditemukan',
+                    text: 'Menu yang Anda cari tidak tersedia atau stok sedang habis.',
+                    confirmButtonText: 'OK',
+                    customClass: {
+                        confirmButton: 'custom-btn' // Kelas kustom untuk tombol
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'product.php'; // Redirect ke product.php
+                    }
+                });
+            }
+        }
+    </script>
+
+    <!-- hamburger menu -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+
+        document.getElementById("hamburger-menu").onclick = function() {
+            var menu = document.getElementById("dropdown-menu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        };
+    </script>
+    <!-- hamburger menu end -->
 
     <!-- swiper slide -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

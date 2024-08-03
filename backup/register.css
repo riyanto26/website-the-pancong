@@ -1,0 +1,117 @@
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFAF00;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 650px;
+        background: white;
+        padding: 28px;
+        margin: 0 28px;
+        border-radius: 10px;
+        box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-title{
+        font-size: 26px;
+        font-weight: 600;
+        text-align: center;
+        padding-bottom: 13px;
+        color:#973131;
+        border-bottom: solid 2px #000;
+    }
+
+    .main-user-info{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px 0;
+    }
+
+    .user-input-box:nth-child(2n){
+        justify-content: end;
+    }
+
+    .user-input-box{
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        padding-bottom: 15px;
+    }
+
+    .user-input-box label{
+        width: 95%;
+        color: black;
+        font-size: 20px;
+        font-weight: 400;
+        margin: 5px 0;
+    }
+
+    .user-input-box input{
+        height: 40px;
+        width: 95%;
+        border-radius: 7px;
+        outline: none;
+        border: 1px solid grey;
+        padding: 0 10px;
+    }
+
+    .form-submit-btn{
+        margin-top: 40px;
+    }
+
+    .form-submit-btn button {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        color: rgb(255, 255, 255);
+        background: #973131;
+        cursor: pointer;
+    }
+
+    .form-submit-btn button:hover {
+        background: #c23f3f;
+        color: #ffff;
+        transition: background-color 0.3s ease; 
+    }
+    button{
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        color: rgb(209, 209, 209);
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s; 
+    }
+
+    .swal-button {
+        background-color: #973131 !important;
+        color: #fff !important;
+        margin: 0 auto !important;
+    }
+    .swal-title {
+        color: #ffac05;
+    }
+    .swal-text {
+        color: #000;
+    }
+    .swal-footer {
+        text-align: center !important;
+    }
